@@ -66,9 +66,10 @@ function showTask() {
 listContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('edit')) {
         const li = event.target.closest('li');
-        const newValue = prompt("Edit item:", li.firstChild.nodeValue);
+        const span = li.querySelector('span');
+        const newValue = prompt("Edit item:", span.innerHTML);
         if (newValue !== null) {
-            li.firstChild.nodeValue = newValue;
+            span.innerHTML = newValue;
             saveData(); // Save the updated data
         }
     } else if (event.target.classList.contains('del')) {
